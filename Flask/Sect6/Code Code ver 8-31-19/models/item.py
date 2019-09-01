@@ -13,12 +13,13 @@ class ItemModel(db.Model):
     
     # anything not mentioned here will not be saved in the database
     
-    def __init__(self, name, price):
+    def __init__(self, name, price, store_id):
         self.name = name
         self.price = price
+        self.store_id = store_id
     
     def json(self):
-        return {'name': self.name, 'price': self.price}
+        return {'name': self.name, 'price': self.price, 'store': self.store_id}
     
     @classmethod
     def find_by_name(cls, name):
